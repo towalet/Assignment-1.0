@@ -13,5 +13,18 @@ print("The second character that is presented is",role2.name,",he is",role2.age,
 print()
 continue1=input("Are you ready to continue, if yes press ENTER:" )
 print("To pick character",role1.name,"Press \"1\" \nTo pick character",role2.name,"press \"2\"")
-
+print()
+status=True
+while status==True:
+    pickrole=eval(input("After reviewing the charactersistics, what charater would you like to pick? Press 1 or 2: " ))
+    if pickrole==1:
+        print("You have succesfully picked",role1.name,". If you are lucky, you will be able to increase his strength and dexterity throughout your journey!")
+        status=False
+        role=role1.name
+    elif pickrole==2:
+        print("You have succesfully picked",role2.name,". If you are lucky, you will be able to increase his strength and intelligence throughout your journey!")
+        status=False
+        role=role2.name
+    else:
+        print("You have to enter either 1 or 2, try again !")
 print()
