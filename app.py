@@ -19,18 +19,20 @@ status=True
 pickrole=eval(input("After reviewing the charactersistics, what charater would you like to pick? Press 1 or 2: " ))
 while status==True:
     if pickrole==1:
-        print("You have succesfully picked",role1.name,". If you are lucky, you will be able to increase his strength and dexterity throughout your journey!")
+        print("You have succesfully picked",role1.name,". If you are lucky, you will be able to use his strength and dexterity to succeed throughout your journey!")
         status=False
         break
     elif pickrole==2:
-        print("You have succesfully picked",role2.name,". If you are lucky, you will be able to increase his strength and intelligence throughout your journey!")
+        print("You have succesfully picked",role2.name,". If you are lucky, you will be able to use his strength and intelligence to succeed throughout your journey!")
         status=False
         break
     else:
         print("You have to enter either 1 or 2, try again !")
+        pickrole=eval(input("Enter 1 or 2 to pick character: "))
 print()
-gamestat1=True
 
+# Game 1
+gamestat1=True
 while gamestat1==True:
     if pickrole==1:
         game.game1role1()
@@ -38,6 +40,19 @@ while gamestat1==True:
         break
     elif pickrole==2:
         game.game1role2()
+        gamestat1==False
+        break
+    else: print("Pick 1 or 2 to continue! ")
+print()
+# Game 2
+gamestat1=True
+while gamestat1==True:
+    if pickrole==1:
+        game.game2role1()
+        gamestat1==False
+        break
+    elif pickrole==2:
+        game.game2role2()
         gamestat1==False
         break
     else: print("Pick 1 or 2 to continue! ")
