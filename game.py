@@ -150,4 +150,53 @@ def game2role2():
     elif dicetotal2==dicetotal:
         print("You have tied with your enemy in challenge 2")
 
+# Game 3
 
+input("Press [ENTER] to play the last challenge! ")
+print()
+print("Welcome to the last challenge, this challenge will decide who wins! Either you, the",role1.name,", or your enemy, the",role2.name,", will win the game!")
+print("In this challenge you will be shooting a bow, your goal is to hit the middle of the target.\nYou will have 3 tries to shoot the bow. The minimum points that could be achieved is 0 and the maximum is 10.")
+print("The attributes that will affect the score are the players intelligence and dexterity! \nFor this challenge you have only one attribute, which is dexterity. Your current dexterity is",role1.dexterity,"DT")
+print()
+input("Are you ready to start the challenge? Press [ENTER] if yes: ")
+print("You and the",role2.name,"have spawned in a field with a target, pick up the bow and arrows and shoot your first shot!")
+
+tries=3
+totalpointsrole1=0
+totalpointsrole2=0
+while tries>0:
+    print()
+    input("Press [ENTER] to shot another arrow: ")
+    print()
+    shotrole1=random.randint(0,10)
+    shotrole2=random.randint(0,10)
+    totalpointsrole1=shotrole1+totalpointsrole1+role1.dexterity
+    totalpointsrole2=shotrole2+totalpointsrole2+role2.iq
+    print("You shot an arrow at the target, and it landed on",shotrole1,"points. Your dexterity has given 1 point to your total. \nYour total is",totalpointsrole1,"points." )
+    print()
+    print(role2.name,"has shot the target and the arrow landed on",shotrole2,"points. \nTheir intelligence attribute has given them an extra 2 points.\nTheir total is",totalpointsrole2,"points.")
+    tries-=1
+
+if totalpointsrole1>totalpointsrole2:
+        print(role1.name,"has won! You have won the last challenge !")
+elif totalpointsrole1<totalpointsrole2:
+        print(role2.name,"has won the challenge! You have lost the last challenge !!!") 
+else: print("It is a tie") 
+
+print()  
+if 0<=totalpointsrole1<7:
+    print("Critical Loss! ")
+    role1.health=role1.health-5
+    print("Due to the critical loss, you lost 5 HP. \nYour current health is:",role1.health,"HP")
+elif 7<=totalpointsrole1<17:
+    print("Loss! ")
+    role1.health=role1.health-3
+    print("Due to the loss, you lost 3 HP. \nYour current health is: ",role1.health)
+elif 24<=totalpointsrole1<31:
+    print("Win !")
+    print("Congratulations! You won in the third challenge! ")
+elif 31<=totalpointsrole1:
+    print("Critical Win !!!")
+    print("Congratulations! You won in the third challenge! ")
+elif totalpointsrole1==totalpointsrole2:
+    print("You have tied with your enemy in challenge 3")
