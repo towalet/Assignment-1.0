@@ -1,11 +1,10 @@
 import role1,role2
 import random
 
-# START OF QUEST
+# START OF QUESTs
 
-# Mission 1
-# The first game for the first role 
-# The player gets a short description and rules of the game and is now able to press ENTER for each try
+
+# quest 1 role1 
 def game1role1():
     tries=3 # assigned variable for the number of tries
     # print statement tells the rules of the 1st challenge for role 1
@@ -28,11 +27,13 @@ def game1role1():
         role1.wins=role1.wins+1
     elif role1.health<role2.health: # If role 2 has a higher health result than role 1
         print(role2.name,"has won! You have lost the first challenge! ") # Prints statement for the enemies win, and tells you that you lost
-        role2.wins=role2.wins+1
     else: print("It is a tie") # Else prints that it is a tie (If their health is equal)
 
 # The first game for the first role 
 # The player gets a short description and rules of the game and is now able to press ENTER for each try
+
+# quest 1 role2
+
 def game1role2():
     tries=3 # assigned variable for the number of tries
     # print statement tells the rules of the 1st challenge for role 2
@@ -51,14 +52,13 @@ def game1role2():
     print()
     if role1.health>role2.health:
         print(role1.name,"has won! You have lost the first challenge !")
-        role1.wins=role1.wins+1
     elif role1.health<role2.health:
         print(role2.name,"has won the challenge! Congratulations !!!") 
         role2.wins=role2.wins+1
     else: print("It is a tie") # Else prints that it is a tie (If their health is equal)
     
 # Mission 2
-# game 2 for role 1
+# quest 2 for role 1
 def game2role1():
     tries=3 # Variable assigned to the number of tries
     input("Press [ENTER] to continue with your 2nd game !") # User gets the option to click ENTER to start challenge 2
@@ -93,15 +93,14 @@ def game2role1():
     print()
     # Compares the total dice points for each role to find winner
     if dicetotal<dicetotal2:
-        print(role1.name,"has won! You have lost the first challenge !")
-        role1.wins=role1.wins+1
+        print(role2.name,"has lost! You have lost the first challenge !")
     elif dicetotal>dicetotal2:
-        print(role2.name,"has won the challenge! Congratulations !!!") 
-        role2.wins=role2.wins+1
+        print(role1.name,"has won the challenge! Congratulations !!!") 
+        role1.wins=role1.wins+1
     else: print("It is a tie") # Else prints that it is a tie (If their health is equal)
 
     print()
-
+    # This part of the code decides what kind of loss or win it is in this challenge
     if 6<=dicetotal<16: # range of points that decide if it is a critical loss
         print("Critical Loss! ")
         role1.health=role1.health-5 # subtracts  5 health points if it is a critical loss
@@ -119,7 +118,7 @@ def game2role1():
     elif dicetotal2==dicetotal: # If both total points are equal
         print("You have tied with your enemy in challenge 2") # Lets the user know that the points are tied
 
-# game 2 for role 2
+# quest 2 for role 2
 def game2role2():
     tries=3
     input("Press [ENTER] to continue with your 2nd game !")
@@ -155,13 +154,13 @@ def game2role2():
     # Compares the total dice points for each role to find winne
     if dicetotal>dicetotal2:
         print(role1.name,"has won! You have lost the first challenge !")
-        role1.wins=role1.wins+1
     elif dicetotal<dicetotal2:
         print(role2.name,"has won the challenge! Congratulations !!!") 
         role2.wins=role2.wins+1
     else: print("It is a tie") # Else prints that it is a tie (If their health is equal)
 
-    print()  
+    print() 
+    # This part of the code decides what kind of loss or win it is in this challenge 
     if 6<=dicetotal<16: # range of points that decide if it is a critical loss
         print("Critical Loss! ")
         role2.health=role2.health-5 # subtracts  5 health points if it is a critical loss
@@ -179,67 +178,150 @@ def game2role2():
     elif dicetotal2==dicetotal: # If both total points are equal
         print("You have tied with your enemy in challenge 2") # Lets the user know that the points are tied
 
-# Game 3
-
-input("Press [ENTER] to play the last challenge! ")
-print()
-# Welcomes to quest 3
-print("Welcome to the last challenge, this challenge will decide who wins! Either you, the",role1.name,", or your enemy, the",role2.name,", will win the game!")
-# The quest is presented, rules of the game are told
-print("In this challenge you will be shooting a bow, your goal is to hit the middle of the target.\nYou will have 3 tries to shoot the bow. The minimum points that could be achieved is 0 and the maximum is 10.")
-print("The attributes that will affect the score are the players intelligence and dexterity! \nFor this challenge you have only one attribute, which is dexterity. Your current dexterity is",role1.dexterity,"DT")
-print()
-# Input to press ENTER is asked to continue game
-input("Are you ready to start the challenge? Press [ENTER] if yes: ")
-# Gives an overview of the situation
-print("You and the",role2.name,"have spawned in a field with a target, pick up the bow and arrows and shoot your first shot!")
-
-tries=3 # Assigns the number of tries
-totalpointsrole1=0 # Assigns the total of points
-totalpointsrole2=0
-# The quest is looped for 3 times 
-while tries>0:
+# quest 3 for role1
+def quest3role1():
+    input("Press [ENTER] to play the last challenge! ")
     print()
-    input("Press [ENTER] to shoot an arrow: ")
+    # Welcomes to quest 3
+    print("Welcome to the last challenge, this challenge will decide who wins! Either you, the",role1.name,", or your enemy, the",role2.name,", will win the game!")
+    # The quest is presented, rules of the game are told
+    print("In this challenge you will be shooting a bow, your goal is to hit the middle of the target.\nYou will have 3 tries to shoot the bow. The minimum points that could be achieved is 0 and the maximum is 10.")
+    print("The attributes that will affect the score are the players intelligence and dexterity! \nFor this challenge you have only one attribute, which is dexterity. Your current dexterity is",role1.dexterity,"DT")
     print()
-    # Randomizes a number of points for role1
-    shotrole1=random.randint(0,10)
-    # Randomizes a number of points for role2
-    shotrole2=random.randint(0,10)
-    # Adds the random number for each role to the attributes to create the total
-    totalpointsrole1=shotrole1+totalpointsrole1+role1.dexterity
-    totalpointsrole2=shotrole2+totalpointsrole2+role2.iq
-    # Presents the results for the chosen role by the user
-    print("You shot an arrow at the target, and it landed on",shotrole1,"points. Your dexterity has given 1 point to your total. \nYour total is",totalpointsrole1,"points." )
+    # Input to press ENTER is asked to continue game
+    input("Are you ready to start the challenge? Press [ENTER] if yes: ")
+    # Gives an overview of the situation
+    print("You and the",role2.name,"have spawned in a field with a target, pick up the bow and arrows and shoot your first shot!")
+
+    tries=3 # Assigns the number of tries
+    totalpointsrole1=0 # Assigns the total of points
+    totalpointsrole2=0
+    # The quest is looped for 3 times 
+    while tries>0:
+        print()
+        input("Press [ENTER] to shoot an arrow: ")
+        print()
+        # Randomizes a number of points for role1
+        shotrole1=random.randint(0,10)
+        # Randomizes a number of points for role2
+        shotrole2=random.randint(0,10)
+        # Adds the random number for each role to the attributes to create the total
+        totalpointsrole1=shotrole1+totalpointsrole1+role1.dexterity
+        totalpointsrole2=shotrole2+totalpointsrole2+role2.iq
+        # Presents the results for the chosen role by the user
+        print("You shot an arrow at the target, and it landed on",shotrole1,"points. Your dexterity has given 1 point to your total. \nYour total is",totalpointsrole1,"points." )
+        print()
+        # Presents the results for the enemy
+        print(role2.name,"has shot the target and the arrow landed on",shotrole2,"points. \nTheir intelligence attribute has given them an extra 2 points.\nTheir total is",totalpointsrole2,"points.")
+        tries-=1 # Decreses the number of tries each loop
+
+    # Compares the total points for each role to find winner
+    if totalpointsrole1>totalpointsrole2:
+            print(role1.name,"has won! You have won the last challenge !") 
+            role1.wins=role1.wins+1 # adds a win to the role
+    elif totalpointsrole1<totalpointsrole2:
+            print(role2.name,"has won the challenge! You have lost the last challenge !!!") 
+    else: print("It is a tie") 
+
     print()
-    # Presents the results for the enemy
-    print(role2.name,"has shot the target and the arrow landed on",shotrole2,"points. \nTheir intelligence attribute has given them an extra 2 points.\nTheir total is",totalpointsrole2,"points.")
-    tries-=1 # Decreses the number of tries each loop
+    # This part of the code decides what kind of loss or win it is in this challenge
+    if 0<=totalpointsrole1<7 and totalpointsrole1<totalpointsrole2: # Range of points for critical loss
+        print("Critical Loss! ")
+        role1.health=role1.health-5 # Subtracts 5 from the total health if critical loss
+        print("Due to the critical loss, you lost 5 HP. \nYour current health is:",role1.health,"HP")
+    elif 7<=totalpointsrole1<24 and totalpointsrole1<totalpointsrole2: # Range of points for loss
+        print("Loss! ")
+        role1.health=role1.health-3 # Subtracts 3 from the total health if loss
+        print("Due to the loss, you lost 3 HP. \nYour current health is: ",role1.health)
+    elif 24<=totalpointsrole1<31 and totalpointsrole1>totalpointsrole2: # Range of points for win
+        print("Win !")
+        print("Congratulations! You won in the third challenge! ") # Congratulates the user
+    elif 31<=totalpointsrole1 and totalpointsrole1>totalpointsrole2: # Range of points for Critical Win
+        print("Critical Win !!!")
+        print("Congratulations! You won in the third challenge! ") # Congratulates the user
+    elif totalpointsrole1==totalpointsrole2: # If both total points = to each other it is a tie
+        print("You have tied with your enemy in challenge 3")
 
- # Compares the total points for each role to find winner
-if totalpointsrole1>totalpointsrole2:
-        print(role1.name,"has won! You have won the last challenge !")
-        role1.wins=role1.wins+1 # adds a win to the role
-elif totalpointsrole1<totalpointsrole2:
-        print(role2.name,"has won the challenge! You have lost the last challenge !!!") 
-        role1.wins=role1.wins+1 # adds a win to the role
-else: print("It is a tie") 
+# quest 3 for role2
+def quest3role2():
+    input("Press [ENTER] to play the last challenge! ")
+    print()
+    # Welcomes to quest 3
+    print("Welcome to the last challenge, this challenge will decide who wins! Either you, the",role2.name,", or your enemy, the",role1.name,", will win the game!")
+    # The quest is presented, rules of the game are told
+    print("In this challenge you will be shooting a bow, your goal is to hit the middle of the target.\nYou will have 3 tries to shoot the bow. The minimum points that could be achieved is 0 and the maximum is 10.")
+    print("The attributes that will affect the score are the players intelligence and dexterity! \nFor this challenge you have only one attribute, which is intellegence. Your current intellegence is",role2.iq,"IQ")
+    print()
+    # Input to press ENTER is asked to continue game
+    input("Are you ready to start the challenge? Press [ENTER] if yes: ")
+    # Gives an overview of the situation
+    print("You and the",role1.name,"have spawned in a field with a target, pick up the bow and arrows and shoot your first shot!")
 
+    tries=3 # Assigns the number of tries
+    totalpointsrole1=0 # Assigns the total of points
+    totalpointsrole2=0
+    # The quest is looped for 3 times 
+    while tries>0:
+        print()
+        input("Press [ENTER] to shoot an arrow: ")
+        print()
+        # Randomizes a number of points for role2
+        shotrole1=random.randint(0,10)
+        # Randomizes a number of points for role1
+        shotrole2=random.randint(0,10)
+        # Adds the random number for each role to the attributes to create the total
+        totalpointsrole1=shotrole1+totalpointsrole1+role2.iq
+        totalpointsrole2=shotrole2+totalpointsrole2+role1.dexterity
+        # Presents the results for the chosen role by the user
+        print("You shot an arrow at the target, and it landed on",shotrole1,"points. Your intellegence has given 2 point to your total. \nYour total is",totalpointsrole1,"points." )
+        print()
+        # Presents the results for the enemy
+        print(role1.name,"has shot the target and the arrow landed on",shotrole2,"points. \nTheir dexterity attribute has given them an extra 1 points.\nTheir total is",totalpointsrole2,"points.")
+        tries-=1 # Decreses the number of tries each loop
 
-print()
-if 0<=totalpointsrole1<7 and totalpointsrole1<totalpointsrole2: # Range of points for critical loss
-    print("Critical Loss! ")
-    role1.health=role1.health-5 # Subtracts 5 from the total health if critical loss
-    print("Due to the critical loss, you lost 5 HP. \nYour current health is:",role1.health,"HP")
-elif 7<=totalpointsrole1<24 and totalpointsrole1<totalpointsrole2: # Range of points for loss
-    print("Loss! ")
-    role1.health=role1.health-3 # Subtracts 3 from the total health if loss
-    print("Due to the loss, you lost 3 HP. \nYour current health is: ",role1.health)
-elif 24<=totalpointsrole1<31 and totalpointsrole1>totalpointsrole2: # Range of points for win
-    print("Win !")
-    print("Congratulations! You won in the third challenge! ") # Congratulates the user
-elif 31<=totalpointsrole1 and totalpointsrole1>totalpointsrole2: # Range of points for Critical Win
-    print("Critical Win !!!")
-    print("Congratulations! You won in the third challenge! ") # Congratulates the user
-elif totalpointsrole1==totalpointsrole2: # If both total points = to each other it is a tie
-    print("You have tied with your enemy in challenge 3")
+    # Compares the total points for each role to find winner
+    if totalpointsrole1>totalpointsrole2:
+            print(role2.name,"has won! You have won the last challenge !")
+            role2.wins=role2.wins+1 # adds a win to the role
+    elif totalpointsrole1<totalpointsrole2:
+            print(role1.name,"has won the challenge! You have lost the last challenge !!!") 
+    else: print("It is a tie") 
+
+    print()
+    # This part of the code decides what kind of loss or win it is in this challenge
+    if 0<=totalpointsrole1<7 and totalpointsrole1<totalpointsrole2: # Range of points for critical loss
+        print("Critical Loss! ")
+        role2.health=role2.health-5 # Subtracts 5 from the total health if critical loss
+        print("Due to the critical loss, you lost 5 HP. \nYour current health is:",role2.health,"HP")
+    elif 7<=totalpointsrole1<24 and totalpointsrole1<totalpointsrole2: # Range of points for loss
+        print("Loss! ")
+        role2.health=role2.health-3 # Subtracts 3 from the total health if loss
+        print("Due to the loss, you lost 3 HP. \nYour current health is: ",role2.health)
+    elif 24<=totalpointsrole1<31 and totalpointsrole1>totalpointsrole2: # Range of points for win
+        print("Win !")
+        print("Congratulations! You won in the third challenge! ") # Congratulates the user
+    elif 31<=totalpointsrole1 and totalpointsrole1>totalpointsrole2: # Range of points for Critical Win
+        print("Critical Win !!!")
+        print("Congratulations! You won in the third challenge! ") # Congratulates the user
+    elif totalpointsrole1==totalpointsrole2: # If both total points = to each other it is a tie
+        print("You have tied with your enemy in challenge 3")
+
+def role1win():
+    if role1.wins>1:
+        print("You have won the game!!! Congratulations")
+        print()
+        print("GAME OVER")
+    else:
+        print("You have lost !!! Try Again")
+        print()
+        print("GAME OVER")
+
+def role2win():
+    if role2.wins>1:
+        print("You have won the game!!! Congratulations")
+        print()
+        print("GAME OVER")
+    else:
+        print("You have lost !!! Try Again")
+        print()
+        print("GAME OVER")
