@@ -1,9 +1,14 @@
+'''
+Anthony Vydysh
+PROG10004 Programming Principles
+Due Date: 10/10/2023
+
+This module Implements the game data and logic.'''
+
 import role1,role2
 import random
 
 # START OF QUESTs
-
-
 # quest 1 role1 
 def game1role1():
     tries=3 # assigned variable for the number of tries
@@ -305,8 +310,10 @@ def quest3role2():
         print("Congratulations! You won in the third challenge! ") # Congratulates the user
     elif totalpointsrole1==totalpointsrole2: # If both total points = to each other it is a tie
         print("You have tied with your enemy in challenge 3")
+# Decides if role 1 will win or lose  the overall game
 
 def role1win():
+    # Decides if role 1 will win or lose  the overall game
     if role1.wins>1:
         print("You have won the game!!! Congratulations")
         print()
@@ -317,6 +324,7 @@ def role1win():
         print("GAME OVER")
 
 def role2win():
+    # Decides if role 1 will win or lose  the overall game
     if role2.wins>1:
         print("You have won the game!!! Congratulations")
         print()
