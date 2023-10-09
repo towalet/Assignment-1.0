@@ -10,8 +10,8 @@ import random
 print()
 
 # Introduces and welcomes the user to the game
-print("Welcome to the Fairy Land, here you will go through 3 fun and interesting quests."
-      " After you pick your character you will start your fun and interesting journey! ")
+print("Welcome to the \"Fairy Land\", here you will go through 3 fun and interesting quests."
+      "\nAfter you pick your character you will start your fun and interesting journey! ")
 print("To win the game you will have to win at least 2 quests out of the 3.")
 print()
 input("Press ENTER if you are ready to see the given characters: ")
